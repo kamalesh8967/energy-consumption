@@ -73,6 +73,106 @@ plt.grid(True)
 plt.xticks(rotation=45)
 plt.tight_layout()
 plt.show()
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Load energy consumption data (replace 'energy_data.csv' with your dataset file)
+energy_data = pd.read_csv('energy_data.csv')
+
+# Data Exploration
+# Display the first few rows of the dataset
+print(energy_data.head())
+
+# Check data types and missing values
+print(energy_data.info())
+
+# Summary statistics
+print(energy_data.describe())
+
+# Data Visualization
+# Plot a time series of energy consumption
+plt.figure(figsize=(12, 6))
+plt.plot(energy_data['Date'], energy_data['Consumption'], label='Energy Consumption', color='blue')
+plt.title('Energy Consumption Over Time')
+plt.xlabel('Date')
+plt.ylabel('Energy Consumption')
+plt.legend()
+plt.grid(True)
+plt.show()
+
+# Plot a histogram of energy consumption
+plt.figure(figsize=(8, 6))
+plt.hist(energy_data['Consumption'], bins=20, color='green', edgecolor='black')
+plt.title('Energy Consumption Histogram')
+plt.xlabel('Energy Consumption')
+plt.ylabel('Frequency')
+plt.grid(True)
+plt.show()
+
+# Perform statistical analysis
+# Calculate the mean and standard deviation of energy consumption
+mean_consumption = energy_data['Consumption'].mean()
+std_consumption = energy_data['Consumption'].std()
+print(f"Mean Energy Consumption: {mean_consumption:.2f}")
+print(f"Standard Deviation of Energy Consumption: {std_consumption:.2f}")
+
+# Identify high/low consumption periods (e.g., peaks and valleys)
+max_consumption = energy_data['Consumption'].max()
+min_consumption = energy_data['Consumption'].min()
+print(f"Peak Consumption: {max_consumption:.2f}")
+print(f"Valley Consumption: {min_consumption:.2f}")
+
+# Calculate the correlation between energy consumption and other features (if available)
+correlation_matrix = energy_data.corr()
+print("Correlation Matrix:\n", correlation_matrix)
+
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Load energy consumption data (replace 'energy_data.csv' with your dataset file)
+energy_data = pd.read_csv('energy_data.csv')
+
+# Data Exploration
+# Display the first few rows of the dataset
+print(energy_data.head())
+
+# Check data types and missing values
+print(energy_data.info())
+
+# Summary statistics
+print(energy_data.describe())
+
+# Data Visualization
+# Plot a time series of energy consumption
+plt.figure(figsize=(12, 6))
+plt.plot(energy_data['Date'], energy_data['Consumption'], label='Energy Consumption', color='blue')
+plt.title('Energy Consumption Over Time')
+plt.xlabel('Date')
+plt.ylabel('Energy Consumption')
+plt.legend()
+plt.grid(True)
+plt.show()
+
+# Plot a histogram of energy consumption
+plt.figure(figsize=(8, 6))
+sns.histplot(energy_data['Consumption'], bins=20, color='green', kde=True)
+plt.title('Energy Consumption Distribution')
+plt.xlabel('Energy Consumption')
+plt.ylabel('Frequency')
+plt.grid(True)
+plt.show()
+
+# Create a correlation matrix and heatmap (if you have additional features)
+correlation_matrix = energy_data.corr()
+plt.figure(figsize=(10, 8))
+sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm')
+plt.title('Correlation Matrix')
+plt.show()
+
+# Create a pairplot to visualize relationships between features (if applicable)
+sns.pairplot(energy_data, diag_kind='kde')
+plt.show()
 
 """CONCLUSION
 
